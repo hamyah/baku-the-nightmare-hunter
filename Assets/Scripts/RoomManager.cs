@@ -8,10 +8,11 @@ public class RoomManager : MonoBehaviour
     public List<GameObject> rooms;
     public Transform roomHolder;
     void Awake() {
-        /*GameObject newRoom;
+        GameObject newRoom;
         foreach (GameObject room in rooms) {
-            newRoom = Instantiate(room, roomHolder);
-            roomHolder.Rotate(0, 0, 45);
-        }*/
+            newRoom = Instantiate(room);
+            newRoom.transform.parent = roomHolder;
+            roomHolder.Rotate(0, 0, 360/rooms.Count);
+        }
     }
 }
