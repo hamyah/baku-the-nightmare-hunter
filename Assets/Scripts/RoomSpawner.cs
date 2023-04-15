@@ -12,8 +12,7 @@ public class RoomSpawner : MonoBehaviour
     {
         _numObjects = objectPrefabs.Count;
     }
-
-
+    
     public void OnSpawnObject(float objectLifetime)
     {
         int index = Random.Range(0, _numObjects);

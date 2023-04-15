@@ -1,17 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RoomChanger : MonoBehaviour
 {
+    static public IntUnityEvent RoomChangedEvent;
+    
     public Transform roomHolder;
-    public float currentRoom = 0;
+    public int currentRoom = 0;
     public float changeCooldown = 0.5f;
     private float lastChangeTime = 0;
+
+    private void Awake()
+    {
+        RoomChangedEvent = new();
+    }
+
     void Update() {
-        float axis = Input.GetAxisRaw("Horizontal");
+        int axis = (int) Input.GetAxisRaw("Horizontal");
         if(axis != 0 && changeCooldown <= Time.time - lastChangeTime) {
-            float nextRoom = currentRoom + axis;
+            int nextRoom = currentRoom + axis;
             if(nextRoom < roomHolder.childCount && nextRoom >= 0) {
                 SetRoom(nextRoom);
             } else {
@@ -22,8 +32,8 @@ public class RoomChanger : MonoBehaviour
         }
     }
 
-    void SetRoom(float i) {
-        //FIXME: this is gonna be changed for animation
+    void SetRoom(int i) {
+        // FIXME: this is gonna be changed for animation
         Debug.Log(roomHolder.childCount);
         Debug.Log(360/roomHolder.childCount);
         Quaternion newAngle = Quaternion.identity;
@@ -31,5 +41,6 @@ public class RoomChanger : MonoBehaviour
         roomHolder.rotation = newAngle;
 
         currentRoom = i;
+        RoomChangedEvent.Invoke(currentRoom);
     }
 }

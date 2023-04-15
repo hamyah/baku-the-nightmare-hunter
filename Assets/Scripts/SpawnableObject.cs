@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 public class SpawnableObject : MonoBehaviour
 {
 
     [SerializeField] private float lifetime;
-    [SerializeField] private UnityEvent onLifetimeOver;
-
+    [SerializeField] private EventChannelSO lifetimeOverEventChanel;
+    
     private float _timeElapsed;
-
+    
 
     void Update()
     {
@@ -19,8 +17,8 @@ public class SpawnableObject : MonoBehaviour
         
         if (_timeElapsed >= lifetime)
         {
-            onLifetimeOver.Invoke();
-            return;
+            lifetimeOverEventChanel.RaiseEvent();
+            Destroy(this);
         }
 
         _timeElapsed += Time.deltaTime;

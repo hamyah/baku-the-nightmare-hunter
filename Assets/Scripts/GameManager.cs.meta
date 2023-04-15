@@ -3,7 +3,9 @@ guid: b7f75ca64d93c3948841272e7691d7cb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lifetimeOverEventChanel: {instanceID: 0}
+  - gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

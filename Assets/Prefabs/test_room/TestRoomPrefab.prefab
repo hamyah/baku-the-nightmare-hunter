@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 3350072598470342051}
   - component: {fileID: 3350072598470342050}
   - component: {fileID: 3350072598470342045}
+  - component: {fileID: 5358537805295568396}
   m_Layer: 5
   m_Name: TestRoomPrefab
   m_TagString: Untagged
@@ -197,7 +198,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3350072598470342045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +216,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5358537805295568396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350072598470342044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1d695823f6b0349a309622ede9c7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefabs:
+  - {fileID: 3948812084245479926, guid: e8643a673e89e494e949afaef6ce368d, type: 3}
 --- !u!1001 &3350072597726737755
 PrefabInstance:
   m_ObjectHideFlags: 0

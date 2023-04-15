@@ -7,6 +7,7 @@ public class RoomManager : MonoBehaviour
 {
     public List<GameObject> rooms;
     public Transform roomHolder;
+
     void Awake() {
         GameObject newRoom;
         foreach (GameObject room in rooms) {
@@ -15,4 +16,5 @@ public class RoomManager : MonoBehaviour
             roomHolder.Rotate(0, 0, 360/rooms.Count);
         }
     }
+    
 }

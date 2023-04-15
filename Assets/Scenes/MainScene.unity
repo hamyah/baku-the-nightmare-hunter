@@ -401,6 +401,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f75ca64d93c3948841272e7691d7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
+  objectLifetime: 30
+  objectSpawnInterval: 20
+  objectSpawnIntervalDecreaseAmount: 2
+  minimumObjectSpawnInterval: 10
   gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
   totalTime: 300
 --- !u!4 &2055653707
