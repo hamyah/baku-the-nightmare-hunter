@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         _gameFinished = false;
         Time.timeScale = 1;
 
-        //GetRoomsList();
+        GetRoomsList();
         RoomChanger.RoomChangedEvent.AddListener(UpdateCurrentRoomIndex);
     }
     
@@ -58,8 +58,6 @@ public class GameManager : MonoBehaviour
 
         if (_elapsedTime >= objectSpawnInterval)
         {
-            GetRoomsList(); // FIXME: pls don't get it every frame :(
-                            // (it's my fault tho)
             if (_rooms.Count == 0)
                 return;
             
@@ -69,10 +67,10 @@ public class GameManager : MonoBehaviour
             if (objectSpawnInterval - objectSpawnIntervalDecreaseAmount > minimumObjectSpawnInterval)
                 objectSpawnInterval -= objectSpawnIntervalDecreaseAmount;
 
-            _rooms.Remove(_rooms[_currentRoomIndex]);   // FIXME: don't make changes to the global list :(
-                                                        // (it's my fault also)
-            
-            int index = Random.Range(0, _rooms.Count);
+            int index;
+            do {
+                index = Random.Range(0, _rooms.Count);
+            } while(index == _currentRoomIndex);
             
             _rooms[index].OnSpawnObject(objectLifetime, index);
         }

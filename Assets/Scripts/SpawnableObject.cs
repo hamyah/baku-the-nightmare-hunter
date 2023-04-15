@@ -51,7 +51,6 @@ public class SpawnableObject : MonoBehaviour
     }
 
     public bool IsActivated() {
-        Debug.Log(_isActivated);
         return _isActivated;
     }
 
