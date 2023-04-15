@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
     [SerializeField] private float minimumObjectSpawnInterval = 10;
-    [SerializeField] private GameManagerAudioManager audioManager;
+    [SerializeField] private AudioManager audioManager;
 
     
     public GameObject gameOver;
@@ -21,12 +21,15 @@ public class GameManager : MonoBehaviour
     
     private float _startTime;
     private float _elapsedTime;
+    private bool _timerPlaying;
+
     private bool _gameFinished;
     private bool _startingTexts = false;
     private bool _anomaliesStarted = false;
     
     private int _currentRoomIndex;
     private List<RoomSpawner> _rooms = new();
+    private List<int> _visitedRooms = new();
 
     
     private void OnEnable()
@@ -39,21 +42,19 @@ public class GameManager : MonoBehaviour
         lifetimeOverEventChanel.OnEventRaised -= OnLifetimeOver;
     }
 
-    void Start() {
-        _startTime = Time.time;
-        _gameFinished = false;
-        Time.timeScale = 1;
-
+    void Start() 
+    {
+        _visitedRooms.Add(0);
         GetRoomsList();
         RoomChanger.RoomChangedEvent.AddListener(UpdateCurrentRoomIndex);
     }
     
     void Update()
     {
-        if (_gameFinished)
+        if (!_timerPlaying)
             return;
         
-        if(!_gameFinished && totalTime <= Time.time - _startTime) {
+        if(_timerPlaying && totalTime <= Time.time - _startTime) {
             // Timer expired
             GameOver();
             return;
@@ -83,9 +84,17 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void StartTimer()
+    {
+        Debug.Log("start timer");
+        _timerPlaying = true;
+        _startTime = Time.time;
+        Time.timeScale = 1;
+    }
+
     void SpawnObject() {
         if (!_anomaliesStarted) {
-            audioManager.PlayFirstObjectSpawn();
+            audioManager.PlaySound();
             _anomaliesStarted = true;
 
             GameObject text = Instantiate(firstAnomalyText);
@@ -102,6 +111,7 @@ public class GameManager : MonoBehaviour
     public void UpdateCurrentRoomIndex(int index)
     {
         _currentRoomIndex = index;
+        UpdateVisitedRooms(_currentRoomIndex);
     }
 
     private void OnLifetimeOver()
@@ -112,7 +122,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Instantiate(gameOver);
-        _gameFinished = true;
+        _timerPlaying = false;
         Time.timeScale = 0;
     }
 
@@ -124,5 +134,14 @@ public class GameManager : MonoBehaviour
         {
             _rooms.Add(roomObject.GetComponent<RoomSpawner>());
         }
+    }
+    
+    private void UpdateVisitedRooms(int roomIndex)
+    {
+        if (!_visitedRooms.Contains(roomIndex))
+            _visitedRooms.Add(roomIndex);
+        
+        if (_visitedRooms.Count == _rooms.Count)  // Start timer for spawning objects once all rooms have been visited at least once
+            StartTimer();
     }
 }

@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 3826742006671131475}
   - component: {fileID: 7342146506443318334}
   - component: {fileID: 8118021109088894005}
-  - component: {fileID: 7433690695271653859}
+  - component: {fileID: 1787635363027325092}
   m_Layer: 5
   m_Name: ObjectBase
   m_TagString: Untagged
@@ -4914,6 +4914,7 @@ MonoBehaviour:
   lifetime: 10
   lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
   _button: {fileID: 8456317636423010149}
+  _warningVFX: {fileID: 0}
 --- !u!114 &7342146506443318334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,7 +4971,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db6615b257ba5594ca941adadf5d8464, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5054,7 +5055,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7433690695271653859
+--- !u!114 &1787635363027325092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5063,15 +5064,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8280752313686345700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be570afe91c6de84c84cd32b0e846b01, type: 3}
+  m_Script: {fileID: 11500000, guid: fae21b7633d97ea449c2059d5da48069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anomaly_found_clips:
+  audioClips:
   - {fileID: 8300000, guid: fc9b7e9eb76d98140ba45e5e750e1b36, type: 3}
   - {fileID: 8300000, guid: 5c77152c3acf32c438c90c5775d7eca5, type: 3}
   - {fileID: 8300000, guid: c3c388ef843502847aa6e8b8c256b81f, type: 3}
   - {fileID: 8300000, guid: 258456064d0e82c47860dac53f4f9368, type: 3}
-  anomaly_audio_source: {fileID: 8118021109088894005}
+  volumeMaxThreshold: 0.5
+  audioSource: {fileID: 8118021109088894005}
 --- !u!1 &8456317636423010149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,9 +5207,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7433690695271653859}
-        m_TargetAssemblyTypeName: AnomalyAudioManager, Assembly-CSharp
-        m_MethodName: PlayFindAnomaly
+      - m_Target: {fileID: 1787635363027325092}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
