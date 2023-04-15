@@ -19,11 +19,11 @@ public class SpawnableObject : MonoBehaviour
     protected bool _isActivated;
     private Image _image;
     [SerializeField] private GameObject _button;
-    private ParticleSystem _warningVFX;
+    public ParticleSystem _warningVFX;
     
     public void Start() {
         _image = GetComponent<Image>();
-        _warningVFX = GetComponentInChildren<ParticleSystem>();
+        this._warningVFX = GetComponentInChildren<ParticleSystem>();
 
         Deactivate();
     }
