@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 2691611199747655221, guid: 3f523c5e075a5e8429f5bfbce1ed9a2f, type: 3}
   - {fileID: 4605040178479840011, guid: f8cdbe473fe58264792765002c4c3a19, type: 3}
   - {fileID: 1859232967352136630, guid: b9b340b016fa5764b813f081473e6c3d, type: 3}
-  - {fileID: 4591415922362992234, guid: 7e548e04579a4ee44a1f7329e0ec3737, type: 3}
+  - {fileID: 8691758335950872551, guid: c13caa53f3b90fc40b76ae8b23ba5296, type: 3}
   rooms: []
   roomHolder: {fileID: 1733117775}
 --- !u!4 &930438331
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
-  objectLifetime: 30000000
+  objectLifetime: 30
   objectSpawnInterval: 20
   objectSpawnIntervalDecreaseAmount: 2
   minimumObjectSpawnInterval: 10
