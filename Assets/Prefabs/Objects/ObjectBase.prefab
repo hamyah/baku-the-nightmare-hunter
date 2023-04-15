@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a9f3ddef8fa5d498c77b5b2db63162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activatedSprite: {fileID: 21300000, guid: f9a7157e341a716419a4c588f77d4bb9, type: 3}
+  deactivatedSprite: {fileID: 21300000, guid: f9a7157e341a716419a4c588f77d4bb9, type: 3}
   lifetime: 10
   lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
 --- !u!114 &7342146506443318334

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class SpawnableObject : MonoBehaviour
 {
+    public Sprite activatedSprite;
+    public Sprite deactivatedSprite;
+
 
     [SerializeField] private float lifetime;
     [SerializeField] private EventChannelSO lifetimeOverEventChanel;
@@ -46,7 +49,7 @@ public class SpawnableObject : MonoBehaviour
         _timeElapsed = 0;
         SetLifetime(lifetime);
 
-        _image.enabled = true;
+        _image.sprite = activatedSprite;
         _button.enabled = true;
     }
 
@@ -57,7 +60,7 @@ public class SpawnableObject : MonoBehaviour
     public void Deactivate() {
         _isActivated = false;
 
-        _image.enabled = false;
+        _image.sprite = deactivatedSprite;
         _button.enabled = false;
     }
 
