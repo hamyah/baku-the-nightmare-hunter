@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class RoomChanger : MonoBehaviour
 {
     static public IntUnityEvent RoomChangedEvent;
+    [SerializeField] private RoomManagerAudioManager audioManager;
     
     public Transform roomHolder;
     public int currentRoom = 0;
@@ -26,8 +27,18 @@ public class RoomChanger : MonoBehaviour
             _isMoving = nextRoom;
             if(nextRoom < roomHolder.childCount && nextRoom >= 0) {
                 SetRoom(nextRoom);
+                audioManager.PlayChangeRoomSound(
+                    nextRoom == 1 ?
+                        RoomManagerAudioManager.AudioTargetPosition.RIGHT :
+                        RoomManagerAudioManager.AudioTargetPosition.LEFT
+                );
             } else {
                 SetRoom(Mathf.Clamp(roomHolder.childCount - nextRoom, 0, roomHolder.childCount-1));
+                audioManager.PlayChangeRoomSound(
+                    nextRoom == 1 ?
+                        RoomManagerAudioManager.AudioTargetPosition.RIGHT :
+                        RoomManagerAudioManager.AudioTargetPosition.LEFT
+                );
             }
 
             lastChangeTime = Time.time;
