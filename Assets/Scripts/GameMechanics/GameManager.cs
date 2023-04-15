@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     private bool _timerPlaying;
 
     private bool _gameFinished;
-    private bool _startingTexts = false;
     private bool _anomaliesStarted = false;
     
     private int _currentRoomIndex;
@@ -47,6 +46,8 @@ public class GameManager : MonoBehaviour
         _visitedRooms.Add(0);
         GetRoomsList();
         RoomChanger.RoomChangedEvent.AddListener(UpdateCurrentRoomIndex);
+
+        StartCoroutine("StartingTexts");
     }
     
     void Update()
@@ -58,11 +59,6 @@ public class GameManager : MonoBehaviour
             // Timer expired
             GameOver();
             return;
-        }
-
-        if(!_startingTexts && _elapsedTime > 1.5f) {
-            Instantiate(memorizeText);
-            _startingTexts = true;
         }
 
         _elapsedTime += Time.deltaTime;
@@ -82,6 +78,12 @@ public class GameManager : MonoBehaviour
             SpawnObject();
         }
 
+    }
+
+    System.Collections.IEnumerator StartingTexts() {
+        yield return new WaitForSeconds(1.5f);
+        
+        Instantiate(memorizeText);
     }
 
     void StartTimer()
