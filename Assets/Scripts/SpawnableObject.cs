@@ -6,6 +6,10 @@ public class SpawnableObject : MonoBehaviour
 {
     public Sprite activatedSprite;
     public Sprite deactivatedSprite;
+    public float maxSpawnRateVFX = 10;
+
+    public float startTimeVFX = 15;
+    public float topTimeVFX = 7;
 
 
     [SerializeField] private float lifetime;
@@ -15,9 +19,11 @@ public class SpawnableObject : MonoBehaviour
     protected bool _isActivated;
     private Image _image;
     [SerializeField] private GameObject _button;
+    private ParticleSystem _warningVFX;
     
     public void Start() {
         _image = GetComponent<Image>();
+        _warningVFX = GetComponentInChildren<ParticleSystem>();
 
         Deactivate();
     }
@@ -32,7 +38,16 @@ public class SpawnableObject : MonoBehaviour
             OnTimerTriggered();
         }
 
+        if(_timeElapsed > startTimeVFX) {
+            var emission = _warningVFX.emission;
+            emission.rateOverTime = Mathf.Lerp(0, maxSpawnRateVFX, (_timeElapsed-startTimeVFX)/(lifetime-startTimeVFX-topTimeVFX));
+            
+            //Mathf.Clamp((_timeElapsed-startTimeVFX)/(lifetime-topTimeVFX), 0, 1) * maxSpawnRateVFX;
+
+        }
+
         _timeElapsed += Time.deltaTime;
+
     }
 
 
@@ -61,6 +76,8 @@ public class SpawnableObject : MonoBehaviour
 
         _image.sprite = deactivatedSprite;
         _button.SetActive(false);
+        var emission = _warningVFX.emission;
+        emission.rateOverTime = 0;
     }
 
     public virtual void OnTimerTriggered() {
