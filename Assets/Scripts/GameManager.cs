@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
     [SerializeField] private float minimumObjectSpawnInterval = 10;
+    [SerializeField] private GameManagerAudioManager audioManager;
 
     
     public GameObject gameOver;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     private float _startTime;
     private float _elapsedTime;
     private bool _gameFinished;
+    private bool _anomaliesStarted = false;
     
     private int _currentRoomIndex;
     private List<RoomSpawner> _rooms = new();
@@ -64,17 +66,27 @@ public class GameManager : MonoBehaviour
             // Spawn an object in a random room (that is not current room)
             _elapsedTime = 0;
             
-            if (objectSpawnInterval - objectSpawnIntervalDecreaseAmount > minimumObjectSpawnInterval)
+            if (objectSpawnInterval - objectSpawnIntervalDecreaseAmount > minimumObjectSpawnInterval) {
                 objectSpawnInterval -= objectSpawnIntervalDecreaseAmount;
+            }
 
-            int index;
-            do {
-                index = Random.Range(0, _rooms.Count);
-            } while(index == _currentRoomIndex);
-            
-            _rooms[index].OnSpawnObject(objectLifetime, index);
+            SpawnObject();
         }
 
+    }
+
+    void SpawnObject() {
+        if (!_anomaliesStarted) {
+            audioManager.PlayFirstObjectSpawn();
+            _anomaliesStarted = true;
+        }
+
+        int index;
+        do {
+            index = Random.Range(0, _rooms.Count);
+        } while(index == _currentRoomIndex);
+        
+        _rooms[index].OnSpawnObject(objectLifetime, index);
     }
 
     public void UpdateCurrentRoomIndex(int index)
