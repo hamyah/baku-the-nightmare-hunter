@@ -7,10 +7,8 @@ public class MusicManager : MonoBehaviour
 {
     public AudioSource IntroMusicSource;
     public AudioSource LoopMusicSource; 
-    public float musicVolume = 0.15f;
-
+    static public float volume = 1f;
     public string MainSceneName;
-
     public static MusicManager Instance = null;
 
     private void Awake() {
@@ -20,7 +18,7 @@ public class MusicManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SetMusicVolume(musicVolume);
+        SetMusicVolume(volume);
 
         DontDestroyOnLoad(gameObject);
     }
@@ -46,5 +44,9 @@ public class MusicManager : MonoBehaviour
     private void StartIntroMusic() {
         LoopMusicSource.loop = true;
         IntroMusicSource.PlayOneShot(IntroMusicSource.clip);
+    }
+
+    static public float GetVolume() {
+        return volume;
     }
 }
