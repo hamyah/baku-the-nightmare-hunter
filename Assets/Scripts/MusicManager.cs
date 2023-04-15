@@ -10,7 +10,6 @@ public class MusicManager : MonoBehaviour
     public float musicVolume = 0.15f;
 
     public string MainSceneName;
-    public string EndSceneName;
 
     public static MusicManager Instance = null;
 
