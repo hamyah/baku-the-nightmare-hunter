@@ -30,8 +30,7 @@ public class SpawnableObject : MonoBehaviour
         
         if (_timeElapsed >= lifetime)
         {
-            lifetimeOverEventChanel.RaiseEvent();
-            Destroy(this);
+            OnTimerTriggered();
         }
 
         _timeElapsed += Time.deltaTime;
@@ -62,6 +61,11 @@ public class SpawnableObject : MonoBehaviour
 
         _image.sprite = deactivatedSprite;
         _button.enabled = false;
+    }
+
+    public virtual void OnTimerTriggered() {
+        lifetimeOverEventChanel.RaiseEvent();
+        Destroy(this);
     }
 
 }
