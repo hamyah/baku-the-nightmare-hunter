@@ -18,7 +18,7 @@ public class SpawnableObject : MonoBehaviour
     
     void Start() {
         _image = GetComponent<Image>();
-        _button = GetComponent<Button>();
+        _button = GetComponentInChildren<Button>();
 
         Deactivate();
     }
