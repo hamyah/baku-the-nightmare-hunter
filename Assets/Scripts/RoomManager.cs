@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
         GameObject newRoom;
         foreach (GameObject room in rooms) {
             newRoom = Instantiate(room);
-            newRoom.transform.parent = roomHolder;
+            newRoom.transform.SetParent(roomHolder);
             roomHolder.Rotate(0, 0, 360/rooms.Count);
         }
     }
