@@ -9,14 +9,14 @@ public class SpawnableObject : MonoBehaviour
 
 
     [SerializeField] private float lifetime;
-    [SerializeField] private EventChannelSO lifetimeOverEventChanel;
+    [SerializeField] protected EventChannelSO lifetimeOverEventChanel;
     
     private float _timeElapsed;
-    private bool _isActivated;
+    protected bool _isActivated;
     private Image _image;
     private Button _button;
     
-    void Start() {
+    public void Start() {
         _image = GetComponent<Image>();
         _button = GetComponentInChildren<Button>();
 

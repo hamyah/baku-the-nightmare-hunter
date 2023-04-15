@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3826742006671131475, guid: 94f6d22a2c5e2b64cb8bfb7fc8b8fa1f, type: 3}
+      propertyPath: activatedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03170733c11c0cd4987f9b4d37cb888c, type: 3}
     - target: {fileID: 5304698293141455022, guid: 94f6d22a2c5e2b64cb8bfb7fc8b8fa1f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8280752313686345700, guid: 94f6d22a2c5e2b64cb8bfb7fc8b8fa1f, type: 3}
       propertyPath: m_Name
-      value: ObjectBase
+      value: sotb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94f6d22a2c5e2b64cb8bfb7fc8b8fa1f, type: 3}
