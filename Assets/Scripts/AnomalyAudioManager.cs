@@ -9,17 +9,6 @@ public class AnomalyAudioManager : MonoBehaviour
     
     [SerializeField]
     private AudioSource anomaly_audio_source;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayFindAnomaly() {
         Debug.Log("Play Anomaly");
