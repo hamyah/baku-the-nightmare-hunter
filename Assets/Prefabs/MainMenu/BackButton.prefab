@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5747076364217097196
+--- !u!1001 &6590679293045279017
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6264853356292597488, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_text
-      value: Exit
+      value: Back
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_Pivot.x
@@ -41,11 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 230.4395
+      value: 313.9277
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 62.7256
+      value: 71.7042
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.857391
+      value: 51.60138
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -4.4892883
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304825, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6264853356565304826, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
       propertyPath: m_Name
-      value: ExitButton
+      value: BackButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ec31dac373f3440998b5a2d2482e59, type: 3}
