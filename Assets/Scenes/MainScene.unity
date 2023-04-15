@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 3350072598470342044, guid: 65f0ea371735b7d44810a6cb034683f6, type: 3}
-  - {fileID: 3350072598470342044, guid: 65f0ea371735b7d44810a6cb034683f6, type: 3}
-  - {fileID: 3350072598470342044, guid: 65f0ea371735b7d44810a6cb034683f6, type: 3}
-  - {fileID: 3350072598470342044, guid: 65f0ea371735b7d44810a6cb034683f6, type: 3}
+  - {fileID: 2691611199747655221, guid: 3f523c5e075a5e8429f5bfbce1ed9a2f, type: 3}
+  - {fileID: 4605040178479840011, guid: f8cdbe473fe58264792765002c4c3a19, type: 3}
+  - {fileID: 4591415922362992234, guid: 7e548e04579a4ee44a1f7329e0ec3737, type: 3}
+  - {fileID: 4591415922362992234, guid: 7e548e04579a4ee44a1f7329e0ec3737, type: 3}
   rooms: []
   roomHolder: {fileID: 1733117775}
 --- !u!4 &930438331
@@ -430,7 +430,7 @@ MonoBehaviour:
   objectSpawnIntervalDecreaseAmount: 2
   minimumObjectSpawnInterval: 10
   gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
-  totalTime: 2
+  totalTime: 300
 --- !u!4 &2055653707
 Transform:
   m_ObjectHideFlags: 0

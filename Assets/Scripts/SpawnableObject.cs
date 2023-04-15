@@ -14,11 +14,10 @@ public class SpawnableObject : MonoBehaviour
     private float _timeElapsed;
     private bool _isActivated;
     private Image _image;
-    private Button _button;
+    [SerializeField] private GameObject _button;
     
     void Start() {
         _image = GetComponent<Image>();
-        _button = GetComponent<Button>();
 
         Deactivate();
     }
@@ -30,8 +29,7 @@ public class SpawnableObject : MonoBehaviour
         
         if (_timeElapsed >= lifetime)
         {
-            lifetimeOverEventChanel.RaiseEvent();
-            Destroy(this);
+            OnTimerTriggered();
         }
 
         _timeElapsed += Time.deltaTime;
@@ -50,7 +48,7 @@ public class SpawnableObject : MonoBehaviour
         SetLifetime(lifetime);
 
         _image.sprite = activatedSprite;
-        _button.enabled = true;
+        _button.SetActive(true);
     }
 
     public bool IsActivated() {
@@ -58,10 +56,16 @@ public class SpawnableObject : MonoBehaviour
     }
 
     public void Deactivate() {
+        Debug.Log("Deactivate");
         _isActivated = false;
 
         _image.sprite = deactivatedSprite;
-        _button.enabled = false;
+        _button.SetActive(false);
+    }
+
+    public virtual void OnTimerTriggered() {
+        lifetimeOverEventChanel.RaiseEvent();
+        Destroy(this);
     }
 
 }
