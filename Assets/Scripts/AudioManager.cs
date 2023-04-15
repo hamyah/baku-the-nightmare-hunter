@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
         PlaySound(audioSource, clip);
     }
 
-    private void PlaySound(AudioSource source, AudioClip clip) {
+    protected void PlaySound(AudioSource source, AudioClip clip) {
         audioSource.volume = calculateVolume() * volumeMaxThreshold;
         audioSource.clip = clip;
         audioSource.Play();
