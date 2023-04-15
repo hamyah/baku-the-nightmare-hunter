@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StereoAudioManager : AudioManager
+public class StereoAudioManager : BaseAudioManager
 {
     [SerializeField]
     private AudioSource leftAudioSource;

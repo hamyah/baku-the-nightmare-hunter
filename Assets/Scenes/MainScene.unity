@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 930438330}
   - component: {fileID: 930438332}
   - component: {fileID: 930438333}
-  - component: {fileID: 930438334}
+  - component: {fileID: 930438337}
   - component: {fileID: 930438336}
   - component: {fileID: 930438335}
   m_Layer: 0
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa407c75263b024aaf60d9dd6d1a33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 930438334}
+  audioManager: {fileID: 930438337}
   roomHolder: {fileID: 1733117775}
   currentRoom: 0
   changeCooldown: 0.5
@@ -511,23 +511,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &930438334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930438329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be39901f511e4c43af353c3468e3434, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeRoomAudioClips:
-  - {fileID: 8300000, guid: 1f4a64dfe5931844b9cf1c386b35ece5, type: 3}
-  changeRoomVolume: 0.3
-  leftAudioSource: {fileID: 930438336}
-  rightAudioSource: {fileID: 930438335}
 --- !u!82 &930438335
 AudioSource:
   m_ObjectHideFlags: 0
@@ -720,6 +703,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &930438337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930438329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ddd553a1bdc70f419ce0a8c985430e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 1f4a64dfe5931844b9cf1c386b35ece5, type: 3}
+  volumeMaxThreshold: 0.3
+  audioSource: {fileID: 0}
+  leftAudioSource: {fileID: 930438336}
+  rightAudioSource: {fileID: 930438335}
 --- !u!1 &943071209
 GameObject:
   m_ObjectHideFlags: 0

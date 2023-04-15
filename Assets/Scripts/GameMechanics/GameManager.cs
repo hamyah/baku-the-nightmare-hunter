@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
     [SerializeField] private float minimumObjectSpawnInterval = 10;
-    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private SingleSourceAudioManager audioManager;
 
     
     public GameObject gameOver;
