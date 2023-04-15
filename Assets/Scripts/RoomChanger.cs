@@ -37,22 +37,25 @@ public class RoomChanger : MonoBehaviour
     void SetRoom(int i) {
         if((i > currentRoom && !(currentRoom == 0 && i == roomHolder.childCount-1)) || (currentRoom == roomHolder.childCount-1 && i == 0)) {
             //Debug.Log("rotate right");
-            GetComponent<Animator>().Play("RotateRight");
+            roomHolder.GetComponent<Animator>().Play("RotateRight");
         } else {
             //Debug.Log("rotate left");
-            GetComponent<Animator>().Play("RotateLeft");
+            roomHolder.GetComponent<Animator>().Play("RotateLeft");
         }
+
+        StartCoroutine("RoomChangedEventTrigger");
 
         currentRoom = i;
         _isMoving = -1;
     }
 
-    public void ThrowRoomChangedEvent() {
-        Debug.Log("room changed");
-        RoomChangedEvent.Invoke(currentRoom);
+    IEnumerator RoomChangedEventTrigger() {
+        yield return new WaitForSeconds(0.2f);
+
+        ThrowRoomChangedEvent();
     }
 
-    public void ThrowAfterRoomChangedEvent() {
+    public void ThrowRoomChangedEvent() {
         Debug.Log("room changed");
         RoomChangedEvent.Invoke(currentRoom);
     }
