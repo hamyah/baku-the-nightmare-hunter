@@ -12,6 +12,7 @@ public class RoomChanger : MonoBehaviour
     public int currentRoom = 0;
     public float changeCooldown = 0.5f;
     private float lastChangeTime = 0;
+    private int _isMoving = -1;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class RoomChanger : MonoBehaviour
         int axis = (int) Input.GetAxisRaw("Horizontal");
         if(axis != 0 && changeCooldown <= Time.time - lastChangeTime) {
             int nextRoom = currentRoom + axis;
+            _isMoving = nextRoom;
             if(nextRoom < roomHolder.childCount && nextRoom >= 0) {
                 SetRoom(nextRoom);
             } else {
@@ -33,14 +35,20 @@ public class RoomChanger : MonoBehaviour
     }
 
     void SetRoom(int i) {
-        // FIXME: this is gonna be changed for animation
-        Debug.Log(roomHolder.childCount);
-        Debug.Log(360/roomHolder.childCount);
-        Quaternion newAngle = Quaternion.identity;
-        newAngle.eulerAngles = new Vector3(0, 0, (360/roomHolder.childCount)*i);
-        roomHolder.rotation = newAngle;
+        if((i > currentRoom && !(currentRoom == 0 && i == roomHolder.childCount-1)) || (currentRoom == roomHolder.childCount-1 && i == 0)) {
+            Debug.Log("rotate right");
+            roomHolder.GetComponent<Animator>().Play("RotateRight");
+        } else {
+            Debug.Log("rotate left");
+            roomHolder.GetComponent<Animator>().Play("RotateLeft");
+        }
 
         currentRoom = i;
         RoomChangedEvent.Invoke(currentRoom);
+        _isMoving = -1;
+    }
+
+    public int MovingToIndex() {
+        return _isMoving;
     }
 }

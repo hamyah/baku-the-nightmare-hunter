@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class SpawnableObject : MonoBehaviour
@@ -8,11 +9,20 @@ public class SpawnableObject : MonoBehaviour
     [SerializeField] private EventChannelSO lifetimeOverEventChanel;
     
     private float _timeElapsed;
+    private bool _isActivated;
+    private Image _image;
+    private Button _button;
     
+    void Start() {
+        _image = GetComponent<Image>();
+        _button = GetComponent<Button>();
+
+        Deactivate();
+    }
 
     void Update()
     {
-        if (lifetime == 0.0)
+        if (!_isActivated || lifetime == 0.0)
             return;
         
         if (_timeElapsed >= lifetime)
@@ -28,6 +38,27 @@ public class SpawnableObject : MonoBehaviour
     public void SetLifetime(float time)
     {
         lifetime = time;
+    }
+
+    public void Activate(float lifetime) {
+        _isActivated = true;
+
+        _timeElapsed = 0;
+        SetLifetime(lifetime);
+
+        _image.enabled = true;
+        _button.enabled = true;
+    }
+
+    public bool IsActivated() {
+        return _isActivated;
+    }
+
+    public void Deactivate() {
+        _isActivated = false;
+
+        _image.enabled = false;
+        _button.enabled = false;
     }
 
 }

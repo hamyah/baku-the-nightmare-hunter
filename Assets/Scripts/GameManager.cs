@@ -67,12 +67,12 @@ public class GameManager : MonoBehaviour
             if (objectSpawnInterval - objectSpawnIntervalDecreaseAmount > minimumObjectSpawnInterval)
                 objectSpawnInterval -= objectSpawnIntervalDecreaseAmount;
 
-            int index = Random.Range(0, _rooms.Count);
-            
-            while(index == _currentRoomIndex)
+            int index;
+            do {
                 index = Random.Range(0, _rooms.Count);
+            } while(index == _currentRoomIndex);
             
-            _rooms[index].OnSpawnObject(objectLifetime);
+            _rooms[index].OnSpawnObject(objectLifetime, index);
         }
 
     }
