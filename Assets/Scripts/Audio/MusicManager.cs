@@ -37,6 +37,7 @@ public class MusicManager : MonoBehaviour
     }
 
     public void SetMusicVolume(float volume) {
+        MusicManager.volume = volume;
         IntroMusicSource.volume = volume;
         LoopMusicSource.volume = volume;
     }
