@@ -15,6 +15,7 @@ public class RoomChanger : MonoBehaviour
     private float lastChangeTime = 0;
     private int _isMoving = -1;
 
+
     private void Awake()
     {
         RoomChangedEvent = new();
@@ -56,6 +57,7 @@ public class RoomChanger : MonoBehaviour
 
         StartCoroutine("RoomChangedEventTrigger");
 
+
         currentRoom = i;
         _isMoving = -1;
     }
@@ -74,4 +76,7 @@ public class RoomChanger : MonoBehaviour
     public int MovingToIndex() {
         return _isMoving;
     }
+
+
+    
 }
