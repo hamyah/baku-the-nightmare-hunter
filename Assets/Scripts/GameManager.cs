@@ -16,10 +16,13 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     
     public float totalTime;
+    public GameObject memorizeText;
+    public GameObject firstAnomalyText;
     
     private float _startTime;
     private float _elapsedTime;
     private bool _gameFinished;
+    private bool _startingTexts = false;
     private bool _anomaliesStarted = false;
     
     private int _currentRoomIndex;
@@ -56,6 +59,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if(!_startingTexts && _elapsedTime > 1.5f) {
+            Instantiate(memorizeText);
+            _startingTexts = true;
+        }
+
         _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime >= objectSpawnInterval)
@@ -79,6 +87,8 @@ public class GameManager : MonoBehaviour
         if (!_anomaliesStarted) {
             audioManager.PlayFirstObjectSpawn();
             _anomaliesStarted = true;
+
+            GameObject text = Instantiate(firstAnomalyText);
         }
 
         int index;
