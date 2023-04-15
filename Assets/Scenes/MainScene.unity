@@ -724,6 +724,7 @@ MonoBehaviour:
   objectSpawnInterval: 20
   objectSpawnIntervalDecreaseAmount: 2
   minimumObjectSpawnInterval: 10
+  audioManager: {fileID: 2055653708}
   gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
   totalTime: 30000000
 --- !u!4 &2055653707
@@ -753,6 +754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee1fee1f50e85f4e82d179c24599f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstObjectSpawnClips:
+  - {fileID: 8300000, guid: 88130853fcafb644296804e034176ebe, type: 3}
+  firstObjectSpawnVolume: 0.3
+  audioSource: {fileID: 2055653709}
 --- !u!82 &2055653709
 AudioSource:
   m_ObjectHideFlags: 0
