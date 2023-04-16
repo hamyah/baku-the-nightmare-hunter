@@ -10,18 +10,26 @@ public class VictoryScreenManager : MonoBehaviour
     private Animator animator;
 
 
-    void Awake() {
+    void Awake()
+    {
         animator = celestialHolder.GetComponent<Animator>();
     }
 
-    void Update() {
-        if(Input.anyKeyDown && !sunCameUp) {
+    void Update()
+    {
+        /*if(Input.anyKeyDown && !sunCameUp) {
             animator.Play("NightToDay");
             sunCameUp = true;
         }
         else if(Input.GetKeyDown(KeyCode.Space)) {
             SceneManager.LoadScene(0);
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
+
 
