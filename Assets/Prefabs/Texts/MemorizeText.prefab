@@ -7,17 +7,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1019954761252425531, guid: f326fa946ffff6248b14328315c144ac, type: 3}
-      propertyPath: m_text
-      value: Memorize the dreams...
+    - target: {fileID: 1019954761254039862, guid: f326fa946ffff6248b14328315c144ac, type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1019954761252425531, guid: f326fa946ffff6248b14328315c144ac, type: 3}
-      propertyPath: m_fontSize
-      value: 23
+    - target: {fileID: 1019954761254039862, guid: f326fa946ffff6248b14328315c144ac, type: 3}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1019954761252425531, guid: f326fa946ffff6248b14328315c144ac, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 23
+    - target: {fileID: 1019954761254039862, guid: f326fa946ffff6248b14328315c144ac, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1019954763101082945, guid: f326fa946ffff6248b14328315c144ac, type: 3}
       propertyPath: m_Pivot.x

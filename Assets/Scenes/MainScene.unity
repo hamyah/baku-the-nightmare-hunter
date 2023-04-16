@@ -1284,14 +1284,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
-  objectLifetime: 30
+  objectLifetime: 35
   objectSpawnInterval: 15
-  objectSpawnIntervalDecreaseAmount: 2
-  minimumObjectSpawnInterval: 10
+  objectSpawnIntervalDecreaseAmount: 2.5
+  minimumObjectSpawnInterval: 7
   firstSpawnAudioManager: {fileID: 2055653710}
   spawnAudioManager: {fileID: 2055653712}
   gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
-  totalTime: 300
+  gameWin: {fileID: 2155219105073964305, guid: ea60683037076b748adb48f5d14acd16, type: 3}
+  totalTime: 100
   memorizeText: {fileID: 283065406370608003, guid: 905ca6e0f8810c84587ac85575e5d2ca, type: 3}
   firstAnomalyText: {fileID: 2189472755395811068, guid: 88f425bdcd698184a8c28e4a4f62f00b, type: 3}
 --- !u!4 &2055653707
@@ -1532,6 +1533,5 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: be547eb2cad1c5b41975e9657486ad80, type: 3}
   - {fileID: 8300000, guid: 5dcdfa4f8618b834cb658595c0fb7663, type: 3}
-  - {fileID: 8300000, guid: bf0311e7cdbb1584bbd7a83cd4b2392d, type: 3}
   volumeMaxThreshold: 0.4
   audioSource: {fileID: 2055653711}
