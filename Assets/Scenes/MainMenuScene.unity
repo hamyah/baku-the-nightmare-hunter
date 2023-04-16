@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec9bc09cfb58b624db5a389a72779434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: MainScene
+  gameSceneName: CutScene
   buttonsGroup: {fileID: 626634282}
   settingsToggleEvent: {fileID: 11400000, guid: f0c22cffeb381c64aa5b2d72b2d63af8, type: 2}
 --- !u!1001 &1915536299

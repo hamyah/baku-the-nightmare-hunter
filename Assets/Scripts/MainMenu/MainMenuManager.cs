@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private string gameSceneName = "MainScene";
+    [SerializeField] private string gameSceneName = "CutScene";
     [SerializeField] private GameObject buttonsGroup;
     [SerializeField] private EventChannelSO settingsToggleEvent;
+
+    void Start() {
+        Time.timeScale = 1;
+    }
 
 
     private void OnEnable()
