@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -56,6 +55,9 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+        /* If I update _elapsedTime inside the function, it actually doesn't update. Thank you Unity/C# */
+        JumpStartGame();
+
         if (!_timerPlaying)
             return;
         
@@ -66,12 +68,13 @@ public class GameManager : MonoBehaviour
         }
 
         _elapsedTime += Time.deltaTime;
+        Debug.Log(_elapsedTime >= objectSpawnInterval);
 
         if (_elapsedTime >= objectSpawnInterval)
         {
             if (_rooms.Count == 0)
                 return;
-            
+
             // Spawn an object in a random room (that is not current room)
             _elapsedTime = 0;
             
@@ -81,13 +84,25 @@ public class GameManager : MonoBehaviour
 
             SpawnObject();
         }
-
     }
+
 
     System.Collections.IEnumerator StartingTexts() {
         yield return new WaitForSeconds(1.5f);
-        
-        Instantiate(memorizeText);
+        if (!_anomaliesStarted) {
+            Instantiate(memorizeText);
+        }
+    }
+
+    void JumpStartGame() {
+        if (!_anomaliesStarted && Input.GetKeyDown(KeyCode.Space)) {
+            StartTimer();
+            JumpStartSpawn();
+        }
+    }
+
+    void JumpStartSpawn() {
+        _elapsedTime = objectSpawnInterval;
     }
 
     void StartTimer()
