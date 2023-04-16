@@ -62,6 +62,23 @@ public class RoomChanger : MonoBehaviour
         _isMoving = -1;
     }
 
+    public void GoToRoom(int roomId) {
+        RoomManager roomManager = GetComponent<RoomManager>();
+        /*AnimationClip clip = new AnimationClip();
+        clip.SetCurve("Room Holder", typeof(Transform), "m_LocalRotation.z", AnimationCurve.EaseInOut(0, roomHolder.rotation.eulerAngles.z, 2, 360/roomManager.roomPrefabs.Count*roomId));
+
+        AnimatorOverrideController animatorOverrideController = new AnimatorOverrideController(roomHolder.GetComponent<Animator>().runtimeAnimatorController);
+        roomHolder.GetComponent<Animator>().runtimeAnimatorController = animatorOverrideController;
+
+        animatorOverrideController["GoTo"] = clip;
+        roomHolder.GetComponent<Animator>().Play("GoTo");
+
+        Debug.Log("go to room " + roomId + " " + 360/roomManager.roomPrefabs.Count*roomId);*/
+
+        LeanTween.rotateZ(roomHolder.gameObject,360/roomManager.roomPrefabs.Count*roomId, 0.5f).setIgnoreTimeScale(true);
+
+    }
+
     IEnumerator RoomChangedEventTrigger() {
         yield return new WaitForSeconds(0.2f);
 

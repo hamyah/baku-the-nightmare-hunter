@@ -218,7 +218,7 @@ RectTransform:
   m_Children:
   - {fileID: 659386046}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -472,7 +472,7 @@ Transform:
   m_Children:
   - {fileID: 1733117775}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &930438332
 MonoBehaviour:
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 1f4a64dfe5931844b9cf1c386b35ece5, type: 3}
-  volumeMaxThreshold: 0.3
+  volumeMaxThreshold: 0.4
   leftAudioSource: {fileID: 930438336}
   rightAudioSource: {fileID: 930438335}
 --- !u!1 &943071209
@@ -786,7 +786,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1284296332
 PrefabInstance:
@@ -1064,7 +1064,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1644508662209083668, guid: acecabb1d7002184ca62afdbc218cf5b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1644508662209083668, guid: acecabb1d7002184ca62afdbc218cf5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1283,8 +1283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f75ca64d93c3948841272e7691d7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
-  objectLifetime: 35
+  lifetimeOverEventChanel: {fileID: 11400000, guid: 76f2145fecf78e344b5b961f12b634ff, type: 2}
+  objectLifetime: 3
   objectSpawnInterval: 15
   objectSpawnIntervalDecreaseAmount: 2.5
   minimumObjectSpawnInterval: 7
@@ -1308,7 +1308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2055653709
 AudioSource:

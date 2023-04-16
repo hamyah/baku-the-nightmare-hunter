@@ -4912,9 +4912,10 @@ MonoBehaviour:
   startTimeVFX: 15
   topTimeVFX: 7
   lifetime: 10
-  lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
+  lifetimeOverEventChanel: {fileID: 11400000, guid: 76f2145fecf78e344b5b961f12b634ff, type: 2}
   _button: {fileID: 8456317636423010149}
   _warningVFX: {fileID: 0}
+  jumpScare: {fileID: 8962257761377320532, guid: dade7dd7c6d7e1841a1bdca1f0034bba, type: 3}
 --- !u!114 &7342146506443318334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,7 +5073,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5c77152c3acf32c438c90c5775d7eca5, type: 3}
   - {fileID: 8300000, guid: c3c388ef843502847aa6e8b8c256b81f, type: 3}
   - {fileID: 8300000, guid: 258456064d0e82c47860dac53f4f9368, type: 3}
-  volumeMaxThreshold: 0.5
+  volumeMaxThreshold: 0.7
   audioSource: {fileID: 8118021109088894005}
 --- !u!1 &8456317636423010149
 GameObject:

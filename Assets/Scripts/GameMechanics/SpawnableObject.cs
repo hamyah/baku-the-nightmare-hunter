@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +15,17 @@ public class SpawnableObject : MonoBehaviour
 
 
     [SerializeField] private float lifetime;
-    [SerializeField] protected EventChannelSO lifetimeOverEventChanel;
+    [SerializeField] protected IntEventChannelSO lifetimeOverEventChanel;
     
     private float _timeElapsed;
     protected bool _isActivated;
     private Image _image;
     [SerializeField] private GameObject _button;
     public ParticleSystem _warningVFX;
+
+    public GameObject jumpScare;
+
+    private bool gameOver = false;
     
     public void Start() {
         _image = GetComponent<Image>();
@@ -33,7 +39,7 @@ public class SpawnableObject : MonoBehaviour
         if (!_isActivated || lifetime == 0.0)
             return;
         
-        if (_timeElapsed >= lifetime)
+        if (!gameOver && _timeElapsed >= lifetime)
         {
             OnTimerTriggered();
         }
@@ -81,8 +87,22 @@ public class SpawnableObject : MonoBehaviour
     }
 
     public virtual void OnTimerTriggered() {
-        lifetimeOverEventChanel.RaiseEvent();
-        Destroy(this);
+        gameOver = true;
+        int roomId = transform.parent.parent.GetSiblingIndex();
+
+        // FIXME: raise the event with the id 
+
+        lifetimeOverEventChanel.RaiseEvent(roomId);
+
+        LeanTween.move(gameObject, Vector3.zero, 0.5f).setDelay(0.5f).setIgnoreTimeScale(true);
+        LeanTween.scale(gameObject, new Vector3(5, 5, 1), 0.5f).setDelay(0.5f).setIgnoreTimeScale(true);
+        LeanTween.scaleZ(gameObject, 1, 2f).setIgnoreTimeScale(true).setOnComplete(SpawnJumpscare);
+
+        //Destroy(this);
+    }
+
+    void SpawnJumpscare() {
+        Instantiate(jumpScare);
     }
 
 }
