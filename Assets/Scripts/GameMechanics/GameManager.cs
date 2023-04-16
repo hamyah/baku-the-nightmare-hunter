@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private EventChannelSO lifetimeOverEventChanel;
+    [SerializeField] private IntEventChannelSO lifetimeOverEventChanel;
     [SerializeField] private float objectLifetime = 30;
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
@@ -120,14 +120,22 @@ public class GameManager : MonoBehaviour
         UpdateVisitedRooms(_currentRoomIndex);
     }
 
-    private void OnLifetimeOver()
+    private void OnLifetimeOver(int roomId)
     {
+        GameObject.Find("Room Manager").GetComponent<RoomChanger>().GoToRoom(roomId);
+
+
+        
         GameOver();
+        LeanTween.scale(gameObject, new Vector3(1, 1, 1), 5f).setOnComplete(DelayGameOverScreen).setIgnoreTimeScale(true);
+    }
+
+    void DelayGameOverScreen() {
+        Instantiate(gameOver);
     }
 
     private void GameOver()
     {
-        Instantiate(gameOver);
         _timerPlaying = false;
         Time.timeScale = 0;
     }

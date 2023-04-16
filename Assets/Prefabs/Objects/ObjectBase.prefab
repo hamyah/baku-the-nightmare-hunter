@@ -4912,9 +4912,10 @@ MonoBehaviour:
   startTimeVFX: 15
   topTimeVFX: 7
   lifetime: 10
-  lifetimeOverEventChanel: {fileID: 11400000, guid: 8995af01ac9e5914cac782b2b968d233, type: 2}
+  lifetimeOverEventChanel: {fileID: 11400000, guid: 76f2145fecf78e344b5b961f12b634ff, type: 2}
   _button: {fileID: 8456317636423010149}
   _warningVFX: {fileID: 0}
+  jumpScare: {fileID: 8962257761377320532, guid: dade7dd7c6d7e1841a1bdca1f0034bba, type: 3}
 --- !u!114 &7342146506443318334
 MonoBehaviour:
   m_ObjectHideFlags: 0

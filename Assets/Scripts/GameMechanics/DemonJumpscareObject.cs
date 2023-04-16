@@ -25,7 +25,7 @@ public class DemonJumpscareObject : SpawnableObject
         if(_isActivated && transform.parent.parent.parent.GetChild(_currentRoomIndex) == transform.parent.parent) {
             if(++_timesSeen >= 2) {
                 Instantiate(jumpscare);
-                lifetimeOverEventChanel.RaiseEvent();
+                lifetimeOverEventChanel.RaiseEvent(transform.parent.parent.GetSiblingIndex());
             }
         }
     }
