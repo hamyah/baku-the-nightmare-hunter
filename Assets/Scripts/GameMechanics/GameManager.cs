@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
     [SerializeField] private float minimumObjectSpawnInterval = 10;
-    [SerializeField] private SingleSourceAudioManager audioManager;
+    [SerializeField] private SingleSourceAudioManager firstSpawnAudioManager;
+    [SerializeField] private SingleSourceAudioManager spawnAudioManager;
 
     
     public GameObject gameOver;
@@ -96,11 +97,13 @@ public class GameManager : MonoBehaviour
 
     void SpawnObject() {
         if (!_anomaliesStarted) {
-            audioManager.PlaySound();
+            firstSpawnAudioManager.PlaySound();
             _anomaliesStarted = true;
 
             GameObject text = Instantiate(firstAnomalyText);
         }
+
+        spawnAudioManager.PlaySound();
 
         int index;
         do {
