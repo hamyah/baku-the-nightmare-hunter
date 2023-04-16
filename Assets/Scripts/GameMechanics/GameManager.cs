@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         
         if(_timerPlaying && totalTime <= Time.time - _startTime) {
             // Timer expired
-            GameOver();
+            GameWin();
             return;
         }
 
