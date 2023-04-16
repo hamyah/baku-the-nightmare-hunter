@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class VictoryScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject celestialHolder;
+    [SerializeField] private SingleSourceAudioManager audioManager;
     private bool sunCameUp = false;
     private Animator animator;
 
@@ -13,6 +14,7 @@ public class VictoryScreenManager : MonoBehaviour
     void Awake()
     {
         animator = celestialHolder.GetComponent<Animator>();
+        audioManager.PlaySound();
     }
 
     void Update()
