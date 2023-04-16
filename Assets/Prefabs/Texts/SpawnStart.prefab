@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1019954761252425531, guid: f326fa946ffff6248b14328315c144ac, type: 3}
+      propertyPath: m_text
+      value: The demons reach out from the shadows...
+      objectReference: {fileID: 0}
     - target: {fileID: 1019954763101082945, guid: f326fa946ffff6248b14328315c144ac, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1019954763101082957, guid: f326fa946ffff6248b14328315c144ac, type: 3}
       propertyPath: m_Name
-      value: BaseText
+      value: SpawnStart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f326fa946ffff6248b14328315c144ac, type: 3}
