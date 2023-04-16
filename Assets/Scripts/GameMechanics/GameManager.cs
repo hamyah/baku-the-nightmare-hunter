@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     void Start() 
     {
+        Time.timeScale = 1;
+        
         _visitedRooms.Add(0);
         GetRoomsList();
         RoomChanger.RoomChangedEvent.AddListener(UpdateCurrentRoomIndex);
@@ -93,7 +95,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("start timer");
         _timerPlaying = true;
         _startTime = Time.time;
-        Time.timeScale = 1;
     }
 
     void SpawnObject() {

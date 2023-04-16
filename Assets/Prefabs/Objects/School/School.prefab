@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stain
       objectReference: {fileID: 0}
+    - target: {fileID: 909128054525383516, guid: 6377ea5c585699f4189fba4637122b09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1833999240600439239, guid: 6377ea5c585699f4189fba4637122b09, type: 3}
       propertyPath: m_TargetGraphic
       value: 
