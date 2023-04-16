@@ -96,14 +96,12 @@ public class SpawnableObject : MonoBehaviour
 
         LeanTween.move(gameObject, Vector3.zero, 0.5f).setDelay(0.5f).setIgnoreTimeScale(true);
         LeanTween.scale(gameObject, new Vector3(5, 5, 1), 0.5f).setDelay(0.5f).setIgnoreTimeScale(true);
-
-        StartCoroutine("SpawnJumpscare");
+        LeanTween.scaleZ(gameObject, 1, 2f).setIgnoreTimeScale(true).setOnComplete(SpawnJumpscare);
 
         //Destroy(this);
     }
 
-    IEnumerator SpawnJumpscare() {
-        yield return new WaitForSeconds(1f);
+    void SpawnJumpscare() {
         Instantiate(jumpScare);
     }
 
