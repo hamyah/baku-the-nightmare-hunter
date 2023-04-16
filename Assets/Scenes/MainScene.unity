@@ -795,6 +795,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 584659793543579864, guid: 67dde93c8ad2b4249b49eb495282b5e2, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 584659794588738513, guid: 67dde93c8ad2b4249b49eb495282b5e2, type: 3}
       propertyPath: m_Name
       value: Frame
@@ -1389,7 +1393,7 @@ MonoBehaviour:
   spawnAudioManager: {fileID: 2055653712}
   gameOver: {fileID: 2155219105073964305, guid: 55620668dc249c94f97234d85d4074c0, type: 3}
   gameWin: {fileID: 2155219105073964305, guid: ea60683037076b748adb48f5d14acd16, type: 3}
-  totalTime: 60
+  totalTime: 3
   memorizeText: {fileID: 283065406370608003, guid: 905ca6e0f8810c84587ac85575e5d2ca, type: 3}
   firstAnomalyText: {fileID: 2189472755395811068, guid: 88f425bdcd698184a8c28e4a4f62f00b, type: 3}
 --- !u!4 &2055653707
