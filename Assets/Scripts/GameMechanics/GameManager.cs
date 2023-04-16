@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
 
         if (!_timerPlaying)
             return;
+
+        Debug.Log((Time.time - _startTime) + "/" + totalTime);
         
         if(_timerPlaying && totalTime <= Time.time - _startTime) {
             // Timer expired
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
     
     private void UpdateVisitedRooms(int roomIndex)
     {
+        if(_timerPlaying) return;
         if (!_visitedRooms.Contains(roomIndex))
             _visitedRooms.Add(roomIndex);
         
