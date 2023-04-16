@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float objectSpawnInterval = 30;
     [SerializeField] private float objectSpawnIntervalDecreaseAmount = 2;
     [SerializeField] private float minimumObjectSpawnInterval = 10;
-    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private SingleSourceAudioManager firstSpawnAudioManager;
+    [SerializeField] private SingleSourceAudioManager spawnAudioManager;
 
     
     public GameObject gameOver;
+    public GameObject gameWin;
     
     public float totalTime;
     public GameObject memorizeText;
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     void Start() 
     {
+        Time.timeScale = 1;
+        
         _visitedRooms.Add(0);
         GetRoomsList();
         RoomChanger.RoomChangedEvent.AddListener(UpdateCurrentRoomIndex);
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
         
         if(_timerPlaying && totalTime <= Time.time - _startTime) {
             // Timer expired
-            GameOver();
+            GameWin();
             return;
         }
 
@@ -91,16 +95,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("start timer");
         _timerPlaying = true;
         _startTime = Time.time;
-        Time.timeScale = 1;
     }
 
     void SpawnObject() {
         if (!_anomaliesStarted) {
-            audioManager.PlaySound();
+            firstSpawnAudioManager.PlaySound();
             _anomaliesStarted = true;
 
             GameObject text = Instantiate(firstAnomalyText);
         }
+
+        spawnAudioManager.PlaySound();
 
         int index;
         do {
@@ -124,6 +129,12 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Instantiate(gameOver);
+        _timerPlaying = false;
+        Time.timeScale = 0;
+    }
+
+    private void GameWin() {
+        Instantiate(gameWin);
         _timerPlaying = false;
         Time.timeScale = 0;
     }
