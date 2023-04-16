@@ -5073,7 +5073,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5c77152c3acf32c438c90c5775d7eca5, type: 3}
   - {fileID: 8300000, guid: c3c388ef843502847aa6e8b8c256b81f, type: 3}
   - {fileID: 8300000, guid: 258456064d0e82c47860dac53f4f9368, type: 3}
-  volumeMaxThreshold: 0.5
+  volumeMaxThreshold: 0.7
   audioSource: {fileID: 8118021109088894005}
 --- !u!1 &8456317636423010149
 GameObject:

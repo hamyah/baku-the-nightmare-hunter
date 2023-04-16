@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
         }
 
         _elapsedTime += Time.deltaTime;
-        Debug.Log(_elapsedTime >= objectSpawnInterval);
 
         if (_elapsedTime >= objectSpawnInterval)
         {
