@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     
     public GameObject gameOver;
+    public GameObject gameWin;
     
     public float totalTime;
     public GameObject memorizeText;
@@ -127,6 +128,12 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Instantiate(gameOver);
+        _timerPlaying = false;
+        Time.timeScale = 0;
+    }
+
+    private void GameWin() {
+        Instantiate(gameWin);
         _timerPlaying = false;
         Time.timeScale = 0;
     }
